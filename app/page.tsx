@@ -195,21 +195,21 @@ export default function Home() {
     },
     {
       name: "Alpha Beta",
-      logo: "/placeholder.svg?key=rvcig",
+      logo: "/treatments/AlphaBEta.png",
       description: "A former American supermarket chain known for grocery retailing in the western United States.",
     },
   ]
 
   // Combo offers
   const comboAddons = [
-    { name: "Facial", price: "₹199", id: "facial" },
-    { name: "Threading", price: "₹149", id: "threading" },
-    { name: "Pedicure", price: "₹299", id: "pedicure" },
-    { name: "Manicure", price: "₹199", id: "manicure" },
-    { name: "Head Massage", price: "₹249", id: "head-massage" },
-    { name: "Back Massage", price: "₹299", id: "back-massage" },
-    { name: "Foot Massage", price: "₹199", id: "foot-massage" },
-    { name: "Hair Wash", price: "₹149", id: "hair-wash" },
+    { name: "Facial", price: "", id: "facial" },
+    { name: "Threading", price: "", id: "threading" },
+    { name: "Pedicure", price: "", id: "pedicure" },
+    { name: "Manicure", price: "", id: "manicure" },
+    { name: "Head Massage", price: "", id: "head-massage" },
+    { name: "Back Massage", price: "", id: "back-massage" },
+    { name: "Foot Massage", price: "", id: "foot-massage" },
+    { name: "Hair Wash", price: "", id: "hair-wash" },
     // { name: "Blow Dry", price: "₹199", id: "blow-dry" },
     // { name: "Hair Trim", price: "₹149", id: "hair-trim" },
   ]
@@ -689,15 +689,19 @@ useEffect(() => {
           </div>
         </section>
 
-        {/* Beauty Treatments Section (Updated background color) */}
-        <section ref={treatmentsRef} className="py-10 md:py-20 lg:py-32 relative overflow-hidden" id="treatments">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-[#FF007F]/20 to-white z-0"
-            style={{ y: useTransform(scrollYProgress, [0.25, 0.45], [0, -100]) }}
-          />
+        {/* Beauty Treatments Section */}
+<section
+  ref={treatmentsRef}
+  className="py-8 md:py-12 lg:py-20 relative overflow-hidden bg-pink-50" // Adjusted padding
+  id="treatments"
+>
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-b from-pink-100 to-pink-50/50 z-0" // Changed gradient colors
+    style={{ y: useTransform(scrollYProgress, [0.25, 0.45], [0, -100]) }}
+  />
 
-          <BeautyTreatments inView={treatmentsInView} />
-        </section>
+  <BeautyTreatments inView={treatmentsInView} />
+</section>
 
         {/* Slimming & Body Care Section */}
         <section ref={slimmingRef} className="py-10 md:py-20 lg:py-32 relative overflow-hidden" id="slimming">

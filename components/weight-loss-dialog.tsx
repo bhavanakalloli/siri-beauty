@@ -31,21 +31,20 @@ export default function WeightLossDialog({ open, onOpenChange, initialCategory =
       description:
         "Our targeted fat reduction treatments use advanced technology to help you lose inches in specific problem areas without surgery or downtime.",
       services: [
-        {
-          name: "Ultrasonic Cavitation",
-          description:
-            "Uses ultrasound waves to break down fat cells, which are then naturally eliminated by your body's lymphatic system.",
-          benefits: ["Non-invasive", "No downtime", "Visible results in 2-3 sessions", "Targets stubborn fat deposits"],
-          image: "/treatments/Ultrasound-Cavitation.jpg",
-        },
+        // {
+        //   name: "Ultrasonic Cavitation",
+        //   description:
+        //     "Uses ultrasound waves to break down fat cells, which are then naturally eliminated by your body's lymphatic system.",
+        //   benefits: ["Non-invasive", "No downtime", "Visible results in 2-3 sessions", "Targets stubborn fat deposits"],
+        //   image: "/treatments/Ultrasound-Cavitation.jpg",
+        // },
         {
           name: "Radio Frequency Fat Reduction",
           description:
             "Heats fat cells to break them down while simultaneously tightening skin for a smoother, more contoured appearance.",
           benefits: [
             "Reduces fat and tightens skin simultaneously",
-            "Comfortable treatment",
-            "Long-lasting results",
+            "Comfortable treatment and Long-lasting results",
             "Safe for all skin types",
             "Increases collagen and elastin",
           ],
@@ -78,7 +77,10 @@ export default function WeightLossDialog({ open, onOpenChange, initialCategory =
           description:
             "Uses electrical heat blankets to generate sweat and removes toxics from the body while improving the instant inch loss.",
           benefits: [
-            "Promotes detoxification, enhances sweat-induced inch loss, and improves circulation for a refreshed, slimmer feel.",
+            "Promotes detoxification",
+            " enhances sweat-induced inch loss",
+            " and improves circulation for a refreshed",
+            " slimmer feel.",
           ],
           image: "/classic-microblading.png",
         },
@@ -149,6 +151,18 @@ export default function WeightLossDialog({ open, onOpenChange, initialCategory =
             "No recovery time needed",
           ],
           image: "/treatments/Laser Lipolysis.avif",
+        },
+        {
+          name: "Inch Loss Therapy",
+          description:
+            "Inch loss therapy refers to non-surgical treatments designed to reduce body measurements by targeting fat deposits, water retention, and cellulite. ",
+          benefits: [
+            "Targeted Fat Reduction – Focuses on stubborn areas that are hard to tone with diet/exercise alone.",
+            "Non-Invasive & Painless – No surgery, anesthesia, or recovery time.",
+            "Boosts Confidence – A more sculpted appearance can improve self-esteem",
+            "improved Skin Tightness – Some methods also promote collagen production.",
+          ],
+          image: "/treatments/Inch Loss Theropy.jpg",
         },
       ],
     },

@@ -63,7 +63,7 @@ const serviceDetails = {
     title: "Classic Manicure",
     description:
       "Pamper your hands with our classic manicure that includes nail shaping, cuticle care, hand massage, and polish.",
-    image: "C:/treatments/manicure.jpg",
+    image: "/treatments/manicure.jpg",
     duration: "30-45 minutes",
     benefits: [
       "Professional nail shaping and filing",
@@ -77,7 +77,7 @@ const serviceDetails = {
   "head-massage": {
     title: "Relaxing Head Massage",
     description: "Relieve stress and tension with our therapeutic head massage that focuses on pressure points.",
-    image: "\treatments\Head-Massage.jpeg",
+    image: "/treatments/Head-Massage.jpeg",
     duration: "20-30 minutes",
     benefits: [
       "Relieves headaches and migraines",
@@ -202,17 +202,17 @@ export default function ComboServiceDialog({ open, onOpenChange, initialService 
               <div className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-5 border border-[#FF007F]/10 shadow-md">
                 <h4 className="font-medium text-sm sm:text-lg mb-2 sm:mb-3 flex items-center gap-1 sm:gap-2">
                   <Star className="h-3 w-3 sm:h-5 sm:w-5 text-[#FFD500]" />
-                  <span>Part of ₹999 Combo Offer</span>
+                  <span>Part of Combo Offer</span>
                 </h4>
                 <p className="text-gray-600 text-xs sm:text-base">
-                  Choose this service along with 4 other services from our menu to avail our special ₹999 combo package.
-                  Regular price:{" "}
+                  Choose this service along with 4 other services from our menu to avail our special combo package.
+                 
                   <span className="text-[#FF007F] font-semibold">
                     {initialService === "pedicure" || initialService === "back-massage"
-                      ? "₹299"
+                      ? ""
                       : initialService === "head-massage"
-                        ? "₹249"
-                        : "₹199"}
+                        ? ""
+                        : ""}
                   </span>
                 </p>
               </div>
@@ -248,7 +248,7 @@ export default function ComboServiceDialog({ open, onOpenChange, initialService 
                   <span>Special Offer</span>
                 </h4>
                 <p className="mb-3 sm:mb-4 text-xs sm:text-base">
-                  Book this service today and get a complimentary mini treatment worth ₹199!
+                  Book this service today and get a complimentary mini treatment 
                 </p>
                 <Button
                   className="bg-white text-[#FF007F] hover:bg-white/90 w-full text-xs sm:text-base py-1 sm:py-2 shadow-md hover:shadow-lg transition-all duration-300"

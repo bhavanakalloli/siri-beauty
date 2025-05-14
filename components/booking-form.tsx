@@ -32,7 +32,7 @@ export default function BookingForm({ services, inView }: BookingFormProps) {
       const formData = new FormData(event.currentTarget)
 
       // Add the Web3Forms access key
-      formData.append("access_key", "a20d82e5-dcc2-48bb-a83c-c86203a42d6a")
+      formData.append("access_key", "5b6b65f5-16bd-4550-9a91-5bef57a7a560")
 
       // Add subject and from_name for better email formatting
       formData.append("subject", "New Booking Request from Siri Beauty Website")

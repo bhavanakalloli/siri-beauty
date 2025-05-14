@@ -1,9 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { X, Sparkles } from "lucide-react"
+import { X, Shield, Sun, Clock, Zap, Star, Droplet, Sparkles } from "lucide-react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 
 interface HydrafacialDialogProps {
   open: boolean
@@ -11,22 +9,6 @@ interface HydrafacialDialogProps {
 }
 
 export default function HydrafacialDialog({ open, onOpenChange }: HydrafacialDialogProps) {
-  // Use a simple number for tab state to avoid any string comparison issues
-  const [activeTabIndex, setActiveTabIndex] = useState(0)
-
-  // Debug the active tab
-  useEffect(() => {
-    console.log("Active tab index:", activeTabIndex)
-  }, [activeTabIndex])
-
-  // Reset tab when dialog opens/closes
-  useEffect(() => {
-    if (open) {
-      console.log("Dialog opened, setting tab to 0")
-      setActiveTabIndex(0)
-    }
-  }, [open])
-
   // Handle consultation button click
   const handleConsultationClick = () => {
     onOpenChange(false) // Close the dialog
@@ -38,63 +20,10 @@ export default function HydrafacialDialog({ open, onOpenChange }: HydrafacialDia
     }, 100)
   }
 
-  // Tab data
-  const tabs = [
-    {
-      name: "HydraFacial",
-      description:
-        "HydraFacial is a patented skin treatment available in medical spas and dermatology offices. It's the only hydradermabrasion procedure that uses patented technology to cleanse, extract, and hydrate.",
-      benefits: [
-        "Deep cleansing and exfoliation",
-        "Painless extractions",
-        "Hydration and antioxidant protection",
-        "Immediate results with no downtime",
-        "Customizable for all skin types",
-      ],
-      image: "/treatments/Hydra-Facial-Price-In-Parlour.jpg",
-    },
-    {
-      name: "Chemical Peels",
-      description:
-        "Chemical peels are skin-resurfacing treatments that use safe acid solutions to exfoliate the outer layers of the skin. This stimulates skin regeneration, helping treat acne, pigmentation, fine lines, and uneven skin tone.",
-      benefits: [
-        "Removes dead skin cells for a smoother complexion",
-        "Fades dark spots, acne scars, and pigmentation",
-        "Stimulates collagen and cell turnover",
-        "Brightens dull skin and improves texture",
-      ],
-      image: "/treatments/chemical-peels.png",
-    },
-    {
-      name: "Microdermabrasion",
-      description:
-        "Microdermabrasion is a non-invasive exfoliation technique that uses a diamond tip or crystals to gently remove the outermost layer of dead skin. It reveals fresher, younger-looking skin underneath and enhances product absorption.",
-      benefits: [
-        "Gently exfoliates and smoothens skin",
-        "Reduces fine lines, acne scars, and sun damage",
-        "Promotes even skin tone and glow",
-        "Boosts circulation and skin regeneration",
-      ],
-      image: "/treatments/microdermabrasion.png",
-    },
-    {
-      name: "LED Therapy",
-      description:
-        "LED Therapy uses different wavelengths of light (like red, blue, and green) to target various skin concerns such as acne, inflammation, aging, and dullness — all without heat or discomfort.",
-      benefits: [
-        "Blue light kills acne-causing bacteria",
-        "Red light stimulates collagen and reduces wrinkles",
-        "Green light helps with pigmentation and skin tone",
-        "Non-invasive, soothing, and safe for all skin types",
-      ],
-      image: "/treatments/LED Theropy.jpg",
-    },
-  ]
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-6xl p-0 bg-transparent border-none shadow-none overflow-hidden sm:mx-4 mx-1 scale-[0.85] sm:scale-100 origin-center">
-        <div className="relative w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl bg-gradient-to-b from-[#FF007F] to-[#0077FF]/30 p-3 md:p-6 border-2 border-white/20">
+      <DialogContent className="max-w-5xl p-0 bg-transparent border-none shadow-none overflow-hidden sm:mx-4 mx-1">
+        <div className="relative w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl bg-[#FF007F] p-4 md:p-6 border-2 border-white/20">
           <button
             onClick={() => onOpenChange(false)}
             className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 bg-white/20 backdrop-blur-sm p-1.5 sm:p-2 rounded-full text-white hover:bg-white/30 transition-colors"
@@ -102,77 +31,194 @@ export default function HydrafacialDialog({ open, onOpenChange }: HydrafacialDia
             <X className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
 
-          <div className="py-3 sm:py-12 container px-4 relative z-10">
-            {/* Tab Navigation - Extremely Simple */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {tabs.map((tab, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    console.log(`Clicking tab ${index}: ${tab.name}`)
-                    setActiveTabIndex(index)
-                  }}
-                  className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 ${
-                    activeTabIndex === index
-                      ? "bg-[#FF007F] text-white shadow-lg"
-                      : "bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm"
-                  }`}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </div>
+          {/* Header */}
+          <div className="text-center mb-8 text-white">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">Glow with Confidence – Skin Treatments That Work</h1>
+            <div className="w-16 h-1 bg-white mx-auto my-4"></div>
+            <p className="text-xs md:text-sm max-w-2xl mx-auto">
+              Reveal flawless skin with our advanced treatments at Siri Beauty in Jayanagar, Bangalore. Our
+              comprehensive skin solutions address all your concerns from acne to aging.
+            </p>
+          </div>
 
-            {/* Tab Content - Super Simple */}
-            <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl border border-white/20">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">{tabs[activeTabIndex].name} Treatment</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <Image
-                      src={tabs[activeTabIndex].image || "/placeholder.svg"}
-                      alt={`${tabs[activeTabIndex].name} Treatment`}
-                      width={600}
-                      height={400}
-                      className="rounded-xl shadow-lg"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">
-                      About <span className="text-[#FF007F]">{tabs[activeTabIndex].name}</span>
-                    </h3>
-                    <p className="text-white/90 mb-4">{tabs[activeTabIndex].description}</p>
-                    <h4 className="text-xl font-semibold text-white mb-2">Benefits:</h4>
-                    <ul className="space-y-2">
-                      {tabs[activeTabIndex].benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start text-white">
-                          <span className="text-[#FF007F] mr-2">❯</span>
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      className="mt-6 bg-[#FF007F] hover:bg-[#FF007F]/90 text-white"
-                      onClick={handleConsultationClick}
-                    >
-                      Book a {tabs[activeTabIndex].name} Consultation
-                      <Sparkles className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
+          {/* Advanced Facial Treatments */}
+          <div className="mb-10">
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center text-white">
+              Advanced Facial Treatments
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Hydrafacial Card */}
+              <div className="bg-[#9C1458] rounded-xl overflow-hidden">
+                <div className="relative h-40 md:h-48">
+                  <Image src="/treatments/Hydrafacial.avif" alt="Hydrafacial Treatment" fill className="object-cover" />
+                </div>
+                <div className="p-4 text-white">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">Hydrafacial</h3>
+                  <p className="text-xs md:text-sm text-white/90">
+                    Deep cleansing, exfoliation, extraction, and hydration for radiant skin
+                  </p>
+                </div>
+              </div>
+
+              {/* Skin Brightening Card */}
+              <div className="bg-[#9C1458] rounded-xl overflow-hidden">
+                <div className="relative h-40 md:h-48">
+                  <Image
+                    src="/treatments/Skin Brightning.jpg"
+                    alt="Skin Brightening Treatment"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 text-white">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">Skin Brightening</h3>
+                  <p className="text-xs md:text-sm text-white/90">
+                    Revitalize dull skin and achieve a luminous, even-toned complexion
+                  </p>
+                </div>
+              </div>
+
+              {/* Hydrafacial with High Frequency Card */}
+              <div className="bg-[#9C1458] rounded-xl overflow-hidden">
+                <div className="relative h-40 md:h-48">
+                  <Image
+                    src="/treatments/High Frequency hydrafacial.jpg"
+                    alt="Hydrafacial with High Frequency"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 text-white">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">Hydrafacial with High Frequency</h3>
+                  <p className="text-xs md:text-sm text-white/90">
+                    Enhanced treatment combining deep cleansing with high frequency for acne and skin tightening
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* CTA Section */}
-            <div className="text-center mt-8">
-              <Button
-                size="lg"
-                className="bg-white text-[#00E5CF] hover:bg-white/90 text-lg px-8 py-6 rounded-full"
-                onClick={handleConsultationClick}
-              >
-                Schedule Your Skin Glow Consultation Today!
-                <Sparkles className="ml-2 h-5 w-5" />
-              </Button>
+          {/* Skin Correction Therapies */}
+          <div className="mb-10">
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center text-white">Skin Correction Therapies</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Acne & Pimple Marks */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Shield className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">Acne & Pimple Marks</h3>
+                <p className="text-xs text-center text-white/90">
+                  Targeted treatments to clear acne and reduce scarring
+                </p>
+              </div>
+
+              {/* Pigmentation Removal */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Sun className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">Pigmentation Removal</h3>
+                <p className="text-xs text-center text-white/90">
+                  Advanced solutions for dark spots and uneven skin tone
+                </p>
+              </div>
+
+              {/* Anti-Aging & Wrinkle Reduction */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Clock className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">
+                  Anti-Aging & Wrinkle Reduction
+                </h3>
+                <p className="text-xs text-center text-white/90">
+                  Turn back the clock with our rejuvenating treatments
+                </p>
+              </div>
+
+              {/* Dark Circle Removal */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Zap className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">Dark Circle Removal</h3>
+                <p className="text-xs text-center text-white/90">Brighten under-eye areas and look refreshed</p>
+              </div>
+
+              {/* Carbon Laser Peel */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Star className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">Carbon Laser Peel</h3>
+                <p className="text-xs text-center text-white/90">Advanced exfoliation for smoother, clearer skin</p>
+              </div>
+
+              {/* Tattoo Removal */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Zap className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">Tattoo Removal</h3>
+                <p className="text-xs text-center text-white/90">Safe and effective removal of unwanted tattoos</p>
+              </div>
+
+              {/* BB Glow */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Sparkles className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">BB Glow</h3>
+                <p className="text-xs text-center text-white/90">
+                  Semi-permanent foundation treatment for flawless, radiant skin
+                </p>
+              </div>
+
+              {/* PRP for Face - Now included in the same grid */}
+              <div className="bg-[#6D1158] rounded-xl p-4">
+                <div className="flex justify-center mb-3">
+                  <Droplet className="h-6 w-6 md:h-8 md:w-8 text-cyan-300" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-center text-white">PRP for Face</h3>
+                <p className="text-xs text-center text-white/90">
+                  Rejuvenate your skin with platelet-rich plasma therapy
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Book Your Service Button */}
+          <div className="text-center mb-8">
+            <button
+              onClick={handleConsultationClick}
+              className="px-8 py-3 bg-white text-[#FF007F] rounded-full font-semibold hover:bg-white/90 transition-colors shadow-lg"
+            >
+              Book Your Service Now
+            </button>
+          </div>
+
+          {/* Navigation Tabs */}
+          <div className="flex flex-wrap justify-center mt-8 space-x-2 md:space-x-4 text-xs">
+            <div className="px-3 py-2 bg-[#6D1158] rounded-full text-white">
+              <span className="flex items-center">
+                <Droplet className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                PREMIUM BEAUTY SERVICES
+              </span>
+            </div>
+            <div className="px-3 py-2 bg-[#6D1158] rounded-full text-white">
+              <span className="flex items-center">
+                <Star className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                LUXURY TREATMENTS
+              </span>
+            </div>
+            <div className="px-3 py-2 bg-[#6D1158] rounded-full text-white">
+              <span className="flex items-center">
+                <Zap className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                EXPERT STYLISTS
+              </span>
             </div>
           </div>
         </div>
@@ -180,3 +226,4 @@ export default function HydrafacialDialog({ open, onOpenChange }: HydrafacialDia
     </Dialog>
   )
 }
+
