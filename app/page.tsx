@@ -195,7 +195,7 @@ export default function Home() {
     },
     {
       name: "Alpha Beta",
-      logo: "/treatments/AlphaBEta.png",
+      logo: "/treatments/Alpha_Beta.jpeg",
       description: "A former American supermarket chain known for grocery retailing in the western United States.",
     },
   ]
